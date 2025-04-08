@@ -1,0 +1,62 @@
+Here’s the updated **theme color palette** with usage comments added beside each color in the `src/constants/index.js` file. This version includes the hex codes, color names, and specific use cases as inline comments for clarity.
+
+---
+
+### Color Constants File with Usage Comments
+
+```javascript
+export const COLORS = {
+  // Primary
+  primary: '#3B82F6',      // Main action buttons (e.g., "Add Item", "Save"), active states, icons
+  secondary: '#60A5FA',    // Secondary buttons (e.g., "Cancel"), links (e.g., "Sign Up" on SignInScreen), hover effects
+
+  // Neutrals
+  white: '#FFFFFF',        // Main app background, item cards, input field backgrounds
+  lightGray: '#F3F4F6',    // Screen backgrounds, separators, subtle borders
+  mediumGray: '#6B7280',   // Secondary text (e.g., item descriptions, quantities), inactive states, borders
+  ash: '#374151',          // Primary text (e.g., item names, headings), titles, strong emphasis
+
+  // Accents
+  success: '#10B981',      // Success feedback (e.g., "Item added" toast), checkmark icons
+  error: '#EF4444',        // Error messages (e.g., invalid input), delete buttons, alerts
+
+  // Dark Mode (optional)
+  darkBackground: '#1F2937', // App background in dark mode
+  darkText: '#D1D5DB',      // Readable text on dark backgrounds in dark mode
+};
+```
+
+---
+
+### Explanation of Usage
+- **Primary Colors**: `primary` and `secondary` blues are action-oriented, guiding users to interact with the app (e.g., buttons, links).
+- **Neutrals**: `white`, `lightGray`, `mediumGray`, and `ash` form the backbone of the UI, ensuring a clean and readable layout.
+- **Accents**: `success` and `error` provide visual cues for user actions, enhancing feedback.
+- **Dark Mode**: Optional colors for future scalability, showing your foresight as a developer.
+
+---
+
+### Example Implementation
+To illustrate how these comments translate to code, here are a few snippets:
+
+#### Primary Button
+```javascript
+<Pressable className="bg-[${COLORS.primary}] p-3 rounded-lg">
+  <Text className="text-white">Add Item</Text> {/* Primary action */}
+</Pressable>
+```
+
+#### Item Card
+```javascript
+<View className="bg-[${COLORS.white}] p-4 mb-2 rounded-lg shadow">
+  <Text className="text-[${COLORS.ash}] text-lg">Item Name</Text> {/* Primary text */}
+  <Text className="text-[${COLORS.mediumGray}]">Qty: 10</Text> {/* Secondary text */}
+</View>
+```
+
+#### Error Text
+```javascript
+<Text className="text-[${COLORS.error}]">Invalid quantity</Text> {/* Error message */}
+```
+
+This setup keeps your theme organized and self-documenting, making it easy for you (or a reviewer) to understand each color’s purpose. Let me know if you’d like further refinements!

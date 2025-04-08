@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "mapGhostD",
-    "slug": "mapGhostD",
+    "name": "BMGInventory",
+    "slug": "BMGInventory",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/icons/invoice.png",
+    "scheme": "BMGInventory",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -13,29 +13,25 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/icons/invoice.png",
+        "backgroundColor": "#3B82F6" 
       }
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/icons/invoice.png"
+    },
+    "splash": {  
+      "image": "./assets/icons/invoice.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#3B82F6"  
     },
     "plugins": [
       "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
+      "expo-asset"  
     ],
     "experiments": {
       "typedRoutes": true
     }
-  }
-}
+  }}

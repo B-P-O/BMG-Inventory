@@ -8,10 +8,10 @@ import {
   SafeAreaView,
   Alert,
 } from "react-native";
-import { settings } from "@/constants/data";
-import { icons } from "@/constants";
+import { settings } from "@/src/constants/data";
+import { icons } from "@/src/constants";
 import { router } from "expo-router";
-import CustomButton from "@/components/CustomButton";
+import CustomButton from "@/src/components/CustomButton.tsx";
 
 const Profile = () => {
   return (

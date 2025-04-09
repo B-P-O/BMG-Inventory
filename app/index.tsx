@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -11,13 +11,13 @@ import {
   ViewStyle,
   Image,
 } from "react-native";
-import images from "@/constants/images";
+import images from "@/src/constants/images";
 import Carousel from "react-native-reanimated-carousel";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Animated from "react-native-reanimated";
 import { router } from "expo-router";
-
-import CustomButton from "@/components/CustomButton";
+import CustomButton from "@/src/components/CustomButton";
+import { icons } from "@/src/constants";
 
 interface OnboardingItem {
   id: number;
@@ -31,7 +31,6 @@ interface RenderItemParams {
   index: number;
 }
 
-// Define CarouselRef interface properly
 interface CarouselRef {
   scrollTo: (options: { index: number; animated?: boolean }) => void;
   next: () => void;
@@ -57,7 +56,7 @@ const onboardingData: OnboardingItem[] = [
     id: 3,
     image: images.AppLogo3,
     title: "Complete Inventory management",
-    description: "manage your inventory with ease",
+    description: "Manage your inventory with ease",
   },
 ];
 
@@ -94,21 +93,21 @@ export default function Home() {
             height: 280,
             borderRadius: 12,
             borderWidth: 2,
-            borderColor: "#60A5FA", // secondary color
+            borderColor: "#60A5FA", // secondary
             resizeMode: "contain",
           }}
         />
       </Animated.View>
       <Text
-        className={`text-darkText text-2xl font-rubik-bold text-center mt-4 ${
-          currentIndex === index ? "opacity-100" : "opacity-0"
+        className={`text-ash text-2xl font-rExtrabold text-center mt-4 ${
+          currentIndex === index ? "opacity-100" : "opacity-70"
         }`}
       >
         {item.title}
       </Text>
       <Text
-        className={`text-darkText text-lg font-rubik text-center mt-2 ${
-          currentIndex === index ? "opacity-100" : "opacity-0"
+        className={`text-mediumGray text-lg font-rMedium text-center mt-2 ${
+          currentIndex === index ? "opacity-100" : "opacity-70"
         }`}
       >
         {item.description}
@@ -118,15 +117,17 @@ export default function Home() {
 
   return (
     <GestureHandlerRootView className="flex-1">
-      <SafeAreaView className="bg-darkBackground flex-1">
+      <SafeAreaView className="bg-lightGray flex-1">
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View className="flex-1 justify-center px-4 py-5">
             {currentIndex < onboardingData.length - 1 && (
               <TouchableOpacity
                 onPress={handleSkip}
-                className="absolute top-2.5 right-4 z-10"
+                className="absolute top-10 right-4 z-10"
               >
-                <Text className="text-secondary font-rubik-medium">Skip</Text>
+                <Text className="text-secondary font-rSemibold text-lg">
+                  Skip
+                </Text>
               </TouchableOpacity>
             )}
             <Carousel
@@ -137,7 +138,6 @@ export default function Home() {
               height={400}
               loop={false}
               onSnapToItem={(index: number) => setCurrentIndex(index)}
-              className="w-full"
               windowSize={3}
               initialNumToRender={1}
               maxToRenderPerBatch={1}
@@ -148,44 +148,46 @@ export default function Home() {
                 activeOffsetX: [-20, 20],
               }}
             />
-            <View className="flex-row justify-center gap-2 ">
+            <View className="flex-row justify-center gap-2 mt-5">
               {onboardingData.map((_, index) => (
                 <View
                   key={index}
                   className={`w-2 h-2 rounded-full ${
-                    index === currentIndex ? "bg-secondary" : "bg-lightGray"
+                    index === currentIndex ? "bg-primary" : "bg-mediumGray"
                   }`}
                 />
               ))}
             </View>
 
-            <View className="w-full mt-3 gap-2">
+            <View className="w-full mt-10 gap-4">
               <CustomButton
-                title="Continue with Google "
-                handlePress={() => {
-                  router.push("/home");
-                }}
-                containStyles="w-full bg-primary border
-                   border-mediumGray rounded-lg py-3"
+                title="Continue with Google"
+                image={icons.Google}
+                handlePress={() => router.push("/home")}
+                containerStyles="w-full py-3 bg-white border border-mediumGray rounded-lg"
+                textStyles="text-ash font-rSemibold"
+                accessibilityLabel="Continue with Google"
               />
-              <View className="flex-row px-2 justify-between align-center">
+              <View className="flex-row justify-between px-5">
                 <CustomButton
                   title="Sign In"
                   handlePress={() => router.push("/sign-in")}
-                  containStyles="w-50 bg-primary border
-                   border-mediumGray justify-center rounded-lg  mt-2"
+                  containerStyles="w-[48%] py-3 bg-primary rounded-lg"
+                  textStyles="text-white font-rSemibold"
+                  accessibilityLabel="Sign in to your account"
                 />
                 <CustomButton
                   title="Sign Up"
                   handlePress={() => router.push("/sign-up")}
-                  containStyles="w-50 bg-primary border 
-                  border-mediumGray rounded-lg  mt-2"
+                  containerStyles="w-[48%] py-3 bg-primary rounded-lg"
+                  textStyles="text-white font-rSemibold"
+                  accessibilityLabel="Create a new account"
                 />
               </View>
             </View>
           </View>
         </ScrollView>
-        <StatusBar backgroundColor="#1F2937" barStyle="light-content" />
+        <StatusBar backgroundColor="#F3F4F6" barStyle="dark-content" />
       </SafeAreaView>
     </GestureHandlerRootView>
   );

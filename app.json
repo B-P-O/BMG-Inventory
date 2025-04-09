@@ -4,7 +4,7 @@
     "slug": "BMGInventory",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icons/invoice.png",
+    "icon": "./src/assets/icons/invoice.png",
     "scheme": "BMGInventory",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,17 +13,17 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icons/invoice.png",
+        "foregroundImage":"./src/assets/icons/invoice.png",
         "backgroundColor": "#3B82F6" 
       }
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/icons/invoice.png"
+      "favicon": "./src/assets/icons/invoice.png"
     },
     "splash": {  
-      "image": "./assets/icons/invoice.png",
+      "image":"./src/assets/icons/invoice.png",
       "resizeMode": "contain",
       "backgroundColor": "#3B82F6"  
     },

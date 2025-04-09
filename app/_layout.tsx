@@ -6,12 +6,11 @@ SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
   const [fontsLoaded] = useFonts({
-    "Rubik-Bold": require("../assets/fonts/Rubik-Bold.ttf"),
-    "Rubik-ExtraBold": require("../assets/fonts/Rubik-ExtraBold.ttf"),
-    "Rubik-Light": require("../assets/fonts/Rubik-Light.ttf"),
-    "Rubik-Medium": require("../assets/fonts/Rubik-Medium.ttf"),
-    "Rubik-Regular": require("../assets/fonts/Rubik-Regular.ttf"),
-    "Rubik-SemiBold": require("../assets/fonts/Rubik-SemiBold.ttf"),
+    "Rubik-ExtraBold": require("../src/assets/fonts/Rubik-ExtraBold.ttf"),
+    "Rubik-Light": require("../src/assets/fonts/Rubik-Light.ttf"),
+    "Rubik-Medium": require("../src/assets/fonts/Rubik-Medium.ttf"),
+    "Rubik-Regular": require("../src/assets/fonts/Rubik-Regular.ttf"),
+    "Rubik-SemiBold": require("../src/assets/fonts/Rubik-SemiBold.ttf"),
   });
 
   useEffect(() => {
@@ -25,11 +24,11 @@ const RootLayout = () => {
   }
 
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="details/[id]" options={{ headerShown: false }} />
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="index" />
+      <Stack.Screen name="(auth)" />
+      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="details/[id]" />
     </Stack>
   );
 };

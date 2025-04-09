@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { Redirect, Tabs } from "expo-router";
 import { Image, Text, View } from "react-native";
 
-import { icons, images } from "@/constants";
+import { icons, images } from "@/src/constants";
 
 const TabIcon = ({ icon, iconColor, name, focused }: any) => {
   return (
@@ -56,17 +56,32 @@ const TabLayout = () => {
             ),
           }}
         />
-
         <Tabs.Screen
-          name="cars"
+          name="category"
           options={{
-            title: "Cars",
+            title: "Category",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.Invoice}
                 iconColor={color}
-                name="Cars"
+                name="items"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+
+        <Tabs.Screen
+          name="addItem"
+          options={{
+            title: "AddItem",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.plus}
+                iconColor={color}
+                name="Add"
                 focused={focused}
               />
             ),
